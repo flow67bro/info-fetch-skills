@@ -6,7 +6,7 @@
 
 | Skill | 用途 |
 |-------|------|
-| [douban-best-edition-webaccess](./douban-best-edition-webaccess/) | 通过豆瓣评分和书评，帮你找到任意一本书的最佳版本（译本对比、出版社对比、繁简对比） |
+| [douban-best-edition-webaccess](./douban-best-edition-webaccess/) | 豆瓣找最佳版本 → 自动查微信读书能否直接看（译本对比、出版社对比、繁简对比、微信读书可用性） |
 
 ## 安装
 
@@ -27,7 +27,24 @@ git clone https://github.com/flow67bro/info-fetch-skills.git /tmp/info-fetch-ski
   rm -rf /tmp/info-fetch-skills
 ```
 
+### 安装指定版本
+
+```bash
+# 安装 v1.0.0（仅豆瓣对比，无微信读书集成）
+curl -fsSL https://raw.githubusercontent.com/flow67bro/info-fetch-skills/v1.0.0/douban-best-edition-webaccess/SKILL.md \
+  -o ~/.agents/skills/douban-best-edition-webaccess/SKILL.md
+```
+
+所有历史版本见 [Releases](https://github.com/flow67bro/info-fetch-skills/releases)。
+
 安装后 agent 会自动识别 `~/.agents/skills/` 下的 skill。
+
+## 版本历史
+
+| 版本 | 日期 | 变更 |
+|------|------|------|
+| [v1.1.0](https://github.com/flow67bro/info-fetch-skills/releases/tag/v1.1.0) | 2026-06-19 | 新增微信读书可用性检查（Phase 5），内容评价输出前置 |
+| [v1.0.0](https://github.com/flow67bro/info-fetch-skills/releases/tag/v1.0.0) | 2026-06-18 | 初始版本：豆瓣版本对比 |
 
 ## 贡献
 
