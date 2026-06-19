@@ -1,5 +1,6 @@
 ---
 name: douban-best-edition-webaccess
+version: 1.1.0
 description: Find the best edition or version of ANY book using Douban scores and reviews, then automatically check WeRead (微信读书) availability for immediate reading — covers translations, different publishers, reprints, and formats. Use when the user asks "哪个版本最好", "best edition/version", "哪个译本最好", "哪个出版社的好", "哪一版值得买", "台版还是大陆版", "原版还是译本", or compares different editions of the same book. Triggers for both translated works AND original-language works with multiple publishers/reprints. Also use when the user wants to know which specific edition to buy or read.
 ---
 
