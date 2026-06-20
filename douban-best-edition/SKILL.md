@@ -1,5 +1,5 @@
 ---
-name: douban-best-edition-webaccess
+name: douban-best-edition
 version: 1.1.0
 description: Find the best edition or version of ANY book using Douban scores and reviews, then automatically check WeRead (微信读书) availability for immediate reading — covers translations, different publishers, reprints, and formats. Use when the user asks "哪个版本最好", "best edition/version", "哪个译本最好", "哪个出版社的好", "哪一版值得买", "台版还是大陆版", "原版还是译本", or compares different editions of the same book. Triggers for both translated works AND original-language works with multiple publishers/reprints. Also use when the user wants to know which specific edition to buy or read.
 ---
@@ -258,6 +258,6 @@ Add clear emoji markers for the final picks: 🥇首选 🥈风格之选 🥉新
 - For web novels / 网络小说, editions are different physical publishers of the same digital content — compare print quality, completeness, and extras (bonus chapters, illustrations).
 - Jina output preserves the page's information hierarchy in Markdown. Scores, star distribution, and review text are rendered inline — no DOM traversal needed.
 - If Jina returns a login wall or very incomplete data for a page, try the same URL once more. If it still fails, note the limitation and skip that source.
-- **Conflict with douban-best-edition**: There is an older CDP-based skill with the same name. This version (Jina-based) is the current and preferred approach. It requires no browser, no CDP proxy, and is much simpler to use.
+- **Replaces old CDP-based version**: An earlier version of this skill used CDP/browser automation. This Jina-based rewrite is the current and only version — simpler, faster, no browser needed.
 - **WeRead API integration**: After ranking editions, automatically call WeRead Agent Gateway to check availability. Use precise match (书名+译者) first, fall back to broad match (书名 only). Always generate `weread://` deep links for matched books. If `$WEREAD_API_KEY` is not set, skip this step and inform the user.
 - **WeRead score scale**: WeRead scores are 0-100 (e.g. 835 = 8.35). When comparing with Douban scores, divide by 10.

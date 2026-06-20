@@ -6,7 +6,7 @@
 
 | Skill | 用途 |
 |-------|------|
-| [douban-best-edition-webaccess](./douban-best-edition-webaccess/) | 豆瓣找最佳版本 → 自动查微信读书能否直接看（译本对比、出版社对比、繁简对比、微信读书可用性） |
+| [douban-best-edition](./douban-best-edition/) | 豆瓣找最佳版本 → 自动查微信读书能否直接看（译本对比、出版社对比、繁简对比、微信读书可用性） |
 
 ## 安装
 
@@ -14,9 +14,9 @@
 
 ```bash
 # 豆瓣查最佳版本
-mkdir -p ~/.agents/skills/douban-best-edition-webaccess && \
-  curl -fsSL https://raw.githubusercontent.com/flow67bro/info-fetch-skills/main/douban-best-edition-webaccess/SKILL.md \
-  -o ~/.agents/skills/douban-best-edition-webaccess/SKILL.md
+mkdir -p ~/.agents/skills/douban-best-edition && \
+  curl -fsSL https://raw.githubusercontent.com/flow67bro/info-fetch-skills/main/douban-best-edition/SKILL.md \
+  -o ~/.agents/skills/douban-best-edition/SKILL.md
 ```
 
 ### 克隆全部 skill
@@ -31,8 +31,8 @@ git clone https://github.com/flow67bro/info-fetch-skills.git /tmp/info-fetch-ski
 
 ```bash
 # 安装 v1.0.0（仅豆瓣对比，无微信读书集成）
-curl -fsSL https://raw.githubusercontent.com/flow67bro/info-fetch-skills/v1.0.0/douban-best-edition-webaccess/SKILL.md \
-  -o ~/.agents/skills/douban-best-edition-webaccess/SKILL.md
+curl -fsSL https://raw.githubusercontent.com/flow67bro/info-fetch-skills/v1.0.0/douban-best-edition/SKILL.md \
+  -o ~/.agents/skills/douban-best-edition/SKILL.md
 ```
 
 所有历史版本见 [Releases](https://github.com/flow67bro/info-fetch-skills/releases)。
@@ -41,7 +41,7 @@ curl -fsSL https://raw.githubusercontent.com/flow67bro/info-fetch-skills/v1.0.0/
 
 ## 依赖
 
-`douban-best-edition-webaccess` 的核心功能（豆瓣版本对比）零依赖，仅 curl + Jina 即可运行。
+`douban-best-edition` 的核心功能（豆瓣版本对比）零依赖，仅 curl + Jina 即可运行。
 
 | Skill | 必需？ | 用途 |
 |-------|--------|------|
