@@ -1,6 +1,6 @@
 ---
 name: douban-best-edition
-version: 1.1.0
+version: 1.2.0
 description: Find the best edition or version of ANY book using Douban scores and reviews, then automatically check WeRead (微信读书) availability for immediate reading — covers translations, different publishers, reprints, and formats. Use when the user asks "哪个版本最好", "best edition/version", "哪个译本最好", "哪个出版社的好", "哪一版值得买", "台版还是大陆版", "原版还是译本", or compares different editions of the same book. Triggers for both translated works AND original-language works with multiple publishers/reprints. Also use when the user wants to know which specific edition to buy or read.
 ---
 
@@ -15,7 +15,7 @@ Compares all editions/versions of a book on Douban, recommends the best one, the
 
 | Skill | 必需？ | 用途 | 安装 |
 |-------|--------|------|------|
-| [weread-skills](https://github.com/flow67bro/weread-skills) | 可选 | Phase 5 微信读书上架匹配 + 生成 `weread://` 直达链接 | 见该仓库 README |
+| [weread-skills](https://github.com/flow67bro/weread-skills) | 可选 | Phase 5 微信读书上架匹配 | 见该仓库 README |
 
 > 缺少 `weread-skills` 时，Phase 5 自动跳过，不影响豆瓣版本对比的核心功能。
 
@@ -199,11 +199,7 @@ From the WeRead response (`results[].books[].bookInfo`), compare `title`, `autho
 | **Likely match** | Same title, different translator/edition | ⚠️ |
 | **Not found** | No matching title on WeRead | ❌ |
 
-**Deep link generation**:
-- Extract `bookId` from the matched WeRead result
-- Generate: `weread://reading?bId={bookId}`
-
-**Fallback recommendation**: If the recommended edition is not on WeRead, list all available editions from the broad search as alternatives, with their bookId and deep link.
+**Fallback recommendation**: If the recommended edition is not on WeRead, list all available editions from the broad search as alternatives, giving the exact search keyword the user should type in WeRead to find each one.
 
 **Scoring on WeRead**: WeRead scores are 0-100 (divide by 10 for comparable scale). Note the WeRead score alongside the Douban score for additional context.
 
@@ -240,12 +236,12 @@ From the WeRead response (`results[].books[].bookInfo`), compare `title`, `autho
 
 ### 📖 微信读书可用性
 
-✅ 已找到：[书名](weread://reading?bId=XXXXX) — 豆瓣推荐版本可直接阅读
+✅ 已找到：《书名》（译者：XXX）— 豆瓣推荐版本可直接在微信读书阅读
 （或）
 ❌ 微信读书暂无豆瓣推荐版本
 ⚠️ 替代：以下版本可在微信读书阅读：
-- [版本A](weread://reading?bId=XXXXX) — 译者/出版社不同
-- [版本B](weread://reading?bId=XXXXX)
+- 《版本A》（译者：XXX）— 译者/出版社不同
+- 《版本B》（译者：XXX）
 ```
 
 Add clear emoji markers for the final picks: 🥇首选 🥈风格之选 🥉新锐之选 / 🔰入门之选.
@@ -259,5 +255,5 @@ Add clear emoji markers for the final picks: 🥇首选 🥈风格之选 🥉新
 - Jina output preserves the page's information hierarchy in Markdown. Scores, star distribution, and review text are rendered inline — no DOM traversal needed.
 - If Jina returns a login wall or very incomplete data for a page, try the same URL once more. If it still fails, note the limitation and skip that source.
 - **Replaces old CDP-based version**: An earlier version of this skill used CDP/browser automation. This Jina-based rewrite is the current and only version — simpler, faster, no browser needed.
-- **WeRead API integration**: After ranking editions, automatically call WeRead Agent Gateway to check availability. Use precise match (书名+译者) first, fall back to broad match (书名 only). Always generate `weread://` deep links for matched books. If `$WEREAD_API_KEY` is not set, skip this step and inform the user.
+- **WeRead API integration**: After ranking editions, automatically call WeRead Agent Gateway to check availability. Use precise match (书名+译者) first, fall back to broad match (书名 only). Present results as plain book titles; no deep links. If `$WEREAD_API_KEY` is not set, skip this step and inform the user.
 - **WeRead score scale**: WeRead scores are 0-100 (e.g. 835 = 8.35). When comparing with Douban scores, divide by 10.

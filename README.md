@@ -6,7 +6,7 @@
 
 | Skill | 用途 |
 |-------|------|
-| [douban-best-edition](./douban-best-edition/) | 豆瓣找最佳版本 → 自动查微信读书能否直接看（译本对比、出版社对比、繁简对比、微信读书可用性） |
+| [douban-best-edition](./douban-best-edition/) | 豆瓣找最佳版本 → 自动查微信读书能否直接看（译本对比、出版社对比、繁简对比、微信读书可用性，提供书名搜索即可） |
 
 ## 安装
 
@@ -45,7 +45,7 @@ curl -fsSL https://raw.githubusercontent.com/flow67bro/info-fetch-skills/v1.0.0/
 
 | Skill | 必需？ | 用途 |
 |-------|--------|------|
-| [weread-skills](https://github.com/flow67bro/weread-skills) | 可选 | Phase 5 微信读书上架匹配 + `weread://` 直达链接 |
+| [weread-skills](https://github.com/flow67bro/weread-skills) | 可选 | Phase 5 微信读书上架匹配，输出书名供用户自行搜索 |
 
 > 缺少 `weread-skills` 时，Phase 5 自动跳过，豆瓣评分对比完全不受影响。
 
@@ -53,6 +53,7 @@ curl -fsSL https://raw.githubusercontent.com/flow67bro/info-fetch-skills/v1.0.0/
 
 | 版本 | 日期 | 变更 |
 |------|------|------|
+| [v1.2.0](https://github.com/flow67bro/info-fetch-skills/releases/tag/v1.2.0) | 2026-06-20 | 微信读书结果改为纯书名（去除 weread:// 深链），用户自行搜索 |
 | [v1.1.0](https://github.com/flow67bro/info-fetch-skills/releases/tag/v1.1.0) | 2026-06-19 | 新增微信读书可用性检查（Phase 5），内容评价输出前置 |
 | [v1.0.0](https://github.com/flow67bro/info-fetch-skills/releases/tag/v1.0.0) | 2026-06-18 | 初始版本：豆瓣版本对比 |
 
