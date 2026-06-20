@@ -13,16 +13,11 @@ Compares all editions/versions of a book on Douban, recommends the best one, the
 
 ## Dependencies
 
-This skill requires the following skills to be installed first:
+| Skill | 必需？ | 用途 | 安装 |
+|-------|--------|------|------|
+| [weread-skills](https://github.com/flow67bro/weread-skills) | 可选 | Phase 5 微信读书上架匹配 + 生成 `weread://` 直达链接 | 见该仓库 README |
 
-| Skill | 用途 | 安装 |
-|-------|------|------|
-| [web-access](https://github.com/eze-is/web-access) | 网页抓取后备 — 当 Jina 返回登录墙或不完整数据时，通过真实浏览器获取页面 | `git clone https://github.com/eze-is/web-access.git /tmp/wa && cp -r /tmp/wa/* ~/.agents/skills/web-access/` |
-| [weread-skills](https://github.com/flow67bro/weread-skills) | 微信读书 API — Phase 5 查询推荐版本是否在微信读书上架，生成 `weread://` 直达链接 | 见该仓库 README |
-
-如果未安装以上依赖：
-- 缺少 `web-access`：Jina 偶尔失败时无法回退，但不影响大部分正常场景
-- 缺少 `weread-skills`：Phase 5 微信读书匹配自动跳过，不影响豆瓣版本对比的核心功能
+> 缺少 `weread-skills` 时，Phase 5 自动跳过，不影响豆瓣版本对比的核心功能。
 
 ## Tool requirement
 

@@ -41,14 +41,13 @@ curl -fsSL https://raw.githubusercontent.com/flow67bro/info-fetch-skills/v1.0.0/
 
 ## 依赖
 
-`douban-best-edition-webaccess` 完整功能需要以下 skill：
+`douban-best-edition-webaccess` 的核心功能（豆瓣版本对比）零依赖，仅 curl + Jina 即可运行。
 
-| Skill | 必需？ | 用途 | 安装 |
-|-------|--------|------|------|
-| [web-access](https://github.com/eze-is/web-access) | 建议 | Jina 抓取失败时的浏览器后备 | `git clone https://github.com/eze-is/web-access.git /tmp/wa && cp -r /tmp/wa/* ~/.agents/skills/web-access/` |
-| [weread-skills](https://github.com/flow67bro/weread-skills) | 可选 | Phase 5 微信读书上架匹配 | 见该仓库 README |
+| Skill | 必需？ | 用途 |
+|-------|--------|------|
+| [weread-skills](https://github.com/flow67bro/weread-skills) | 可选 | Phase 5 微信读书上架匹配 + `weread://` 直达链接 |
 
-> 缺少 `weread-skills` 不影响豆瓣评分对比的核心功能，仅跳过微信读书可用性检查。
+> 缺少 `weread-skills` 时，Phase 5 自动跳过，豆瓣评分对比完全不受影响。
 
 ## 版本历史
 
